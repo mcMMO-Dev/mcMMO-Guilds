@@ -1,0 +1,9 @@
+name: mcMMO Guilds
+version: ${project.version}
+main: dev.nossr50.mcmmoguilds.GuildsCore
+api-version: 1.13
+prefix: mcMMO-Guilds
+depend: [mcMMO]
+authors: [nossr50]
+description: The official Guilds add on for mcMMO
+website: https://www.mcmmo.org
