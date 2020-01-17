@@ -51,6 +51,10 @@
                                     <pattern>net.kyori.text</pattern>
                                     <shadedPattern>dev.nossr50.mcmmoguilds.text</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>ninja.leaping.configurate</pattern>
+                                    <shadedPattern>dev.nossr50.mcmmoguilds.configurate</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
@@ -78,6 +82,10 @@
                 <id>aikar</id>
                 <url>https://repo.aikar.co/content/groups/aikar/</url>
             </repository>
+            <repository>
+                <id>sponge</id>
+                <url>https://repo.spongepowered.org/maven</url>
+            </repository>
     </repositories>
 
     <dependencies>
@@ -97,6 +105,12 @@
             <groupId>net.kyori</groupId>
             <artifactId>text-api</artifactId>
             <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <!-- Modify this line to target the loader you wish to use. -->
+            <artifactId>configurate-hocon</artifactId>
+            <version>3.7-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>co.aikar</groupId>
