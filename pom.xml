@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.nossr50</groupId>
+    <groupId>dev.nossr50.mcmmoguilds</groupId>
     <artifactId>mcMMO-Guilds</artifactId>
     <version>0.01.00-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -26,14 +26,14 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -42,6 +42,16 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>co.aikar.commands</pattern>
+                                    <shadedPattern>dev.nossr50.mcmmoguilds.acf</shadedPattern> <!-- Replace this -->
+                                </relocation>
+                                <relocation>
+                                    <pattern>net.kyori.text</pattern>
+                                    <shadedPattern>dev.nossr50.mcmmoguilds.text</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
@@ -64,6 +74,10 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
+            <repository>
+                <id>aikar</id>
+                <url>https://repo.aikar.co/content/groups/aikar/</url>
+            </repository>
     </repositories>
 
     <dependencies>
@@ -83,6 +97,11 @@
             <groupId>net.kyori</groupId>
             <artifactId>text-api</artifactId>
             <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>co.aikar</groupId>
+            <artifactId>acf-bukkit</artifactId> <!-- Don't forget to replace this -->
+            <version>0.5.0-SNAPSHOT</version> <!-- Replace this as well -->
         </dependency>
     </dependencies>
 </project>
